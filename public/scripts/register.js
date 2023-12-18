@@ -11,12 +11,7 @@ form.addEventListener('submit', (event)=>{
     event.preventDefault()
     if(password.value === confirmPassword.value){
 
-    console.log('Submit!!')
-    console.log('nombre:', nombre.value)
-    console.log('email:', email.value)
-    console.log('password:', password.value)
-    console.log('confirmPassword:', confirmPassword.value )
-    console.log('photoURL:', photoURL.value)
+    
     
         fetch('http://localhost:3000/api/user/register',{
         
@@ -34,7 +29,7 @@ form.addEventListener('submit', (event)=>{
             }
                 
             }).then((res)=>{
-                console.log('res:', res)
+               
                 window.location.href = 'http://localhost:3000/login'
         }).catch((error)=>{
             console.error(error)

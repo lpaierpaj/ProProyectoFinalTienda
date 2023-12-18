@@ -33,7 +33,6 @@ const  update = async (req, res) =>{
 
 const remove = async(req, res) =>{
     try {
-        console.log('id', req.body.productId)
         await Product.deleteOne ({_id: req.body.productId})                             //await Product.findByIdAndRemove (req.body.product.Id)
         res.status(200).end()
     } catch(error){

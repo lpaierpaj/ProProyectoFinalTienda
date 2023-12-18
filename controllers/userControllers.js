@@ -11,7 +11,7 @@ const email = req.body.email
 const  password = req.body.password
 const user = await User.findOne({email:email})
 const machPassword = userUtils.comparePasswords(password, user.password, user.salt)
-console.log('machPassword:', machPassword)
+
 if(machPassword){
     const token = userUtils.createToken(user)
     res.status(200).send(token)
@@ -60,7 +60,7 @@ if(email && password && photo){
 const logout =  (req,res)=> {
     req.user = null
     res.clearCookie("token")
-    console.log("oeoeoeoe")
+    
     res.status(200).end()
 
 

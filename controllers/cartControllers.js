@@ -7,9 +7,6 @@ const  update = async (req, res) =>{
         cart.products.push(req.body.productId)   
         cart.save()     
         res.status(200).end()
-        console.log('user:',req.user._id)
-        console.log('cart:', cart)
-        console.log('productId:',req.body.productId)
     } catch(error){
         res.status(500).end()
     
