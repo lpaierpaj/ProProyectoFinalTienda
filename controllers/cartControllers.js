@@ -12,20 +12,22 @@ const  update = async (req, res) =>{
     
     }
 
-
-}/*
-
+}/*  REMOVER */
+/*++++++++++++++++++++++++++++++++++++++++++*/
 const remove = async(req, res) =>{
-    try {
-        console.log('id', req.body.productId)
-        await Product.deleteOne ({_id: req.body.productId})                             //await Product.findByIdAndRemove (req.body.product.Id)
-        res.status(200).end()
-    } catch(error){
-        res.status(500).end()
+
+ 
+try {
     
-    }
+    const cart = await Cart.findOne ({userId: req.body.userId})
+    let index = cart.products.indexOf( req.body.productId)
+    cart.products.splice(index, 1)
+    cart.save()
+    res.status(200).end()
+} catch(error){
+    res.status(500).end()
 
-
+}
 }
 
 /*
@@ -53,7 +55,7 @@ const get = async(req, res) => {
 module.exports = {
   //  create:create,
         update:update,
-  //  remove:remove,
+        remove:remove
    // get:get
     
 }

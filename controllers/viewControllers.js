@@ -28,7 +28,7 @@ const home  = async(req,res)=> {
 }
 
 const dashboard  = (req,res)=> {
-    console.log('user', req.user)
+    //console.log('user', req.user)
     res.render('pages/dashboard', {user:req.user});  //borrar//
     }
 
@@ -42,8 +42,8 @@ const cart = async (req,res)=> {
     })
     await Promise.all(promises).then((products)=> {
             res.render('pages/shoppingCart',{products:products, user:req.user });
-            console.log(products)
-            console.log(req.user)
+            //console.log(products)
+            //console.log(req.user)
         })
          
         }

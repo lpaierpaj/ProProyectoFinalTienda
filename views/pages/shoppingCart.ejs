@@ -49,7 +49,7 @@
                 <p>Cantidad: <span class="quantity">1</span></p>
                 <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
                 <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
-                <button class="remove-btn" onclick="removeProduct(this)">Quitar</button>
+                <button class="remove-btn" onclick="removeProduct('<%= user._id%>','<%= products[i]._id %>')">Quitar</button>
               </div>
             </li>
   
@@ -105,11 +105,14 @@
         quantityElement.textContent = currentQuantity - 1;
       }
     }
-
-    function removeProduct(btn) {
-      var listItem = btn.parentNode.parentNode;
+/*
+    function removeProduct(btn) { 
+           var listItem = btn.parentNode.parentNode;
       listItem.parentNode.removeChild(listItem);
-    }
+    
+    }*/
+
+
 
     document.getElementById('checkout-form').addEventListener('submit', function(event) {
       event.preventDefault();
@@ -127,6 +130,6 @@
            window.location.href = 'http://localhost:3000/login'
         }
   </script>
-
+<script src="./scripts/cart.js"></script>
 </body>
 </html>
