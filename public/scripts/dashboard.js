@@ -93,7 +93,7 @@ function openEditModal(productId) {
         }).then(()=>{
             alert('Producto actualizado')
            
-            contenidoDialogo.textContent = "Producto actualizado!!!!"
+           // contenidoDialogo.textContent = "Producto actualizado!!!!"
            
         }). catch((error)=>{
             console.log(error)
